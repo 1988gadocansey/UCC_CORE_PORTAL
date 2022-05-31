@@ -1,0 +1,56 @@
+micronaut:
+  application:
+    name: ucc
+  server:
+    port: 8080
+  security:
+    authentication: idtoken # <1>
+    oauth2:
+      clients:
+        google: # <2>
+          #client-id: '${OAUTH_CLIENT_ID:5014057553-8gm9um6vnli3cle5rgigcdjpdrid14m9.apps.googleusercontent.com}'  # <3>
+          client-id: '723356704612-cqfv12o861oa92cis4qmn50hjvd5mflf.apps.googleusercontent.com'  # <3>
+          client-secret: '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' # <4>
+          openid:
+            issuer: 'https://accounts.google.com' # <5>
+    endpoints:
+      logout:
+        get-allowed: true # <6>
+  #end::oauth2[]
+
+r2dbc:
+  datasources:
+    default:
+      url: r2dbc:postgresql://localhost/CCTU
+      username: gadocansey
+      password: 1988Gadocansey
+      schema-generate: create_drop
+      dialect: POSTGRES
+      driver-class-name: org.postgresql.Driver
+      driverClassName: org.postgresql.Driver
+    serverMain:
+      url: r2dbc:postgresql://localhost/CCTU
+      username: gadocansey
+      password: 1988Gadocansey
+      dialect: postgres
+      options:
+        currentSchema: serverMain
+      driver-class-name: org.postgresql.Driver
+      driverClassName: org.postgresql.Driver
+#  jpa
+#    url: jdbc:postgresql://localhost:5432/CCTU
+#      driverClassName: org.postgresql.Driver
+#      username: gadocansey
+#      password: 1988Gadocansey
+#      schema-generate: NONE
+#      dialect: POSTGRES
+netty:
+  default:
+    allocator:
+      max-order: 3
+sftp:
+    username: gadocansey
+    password:  123
+    port: 123
+app:
+  hosted-domain: 'ttu.edu.gh'

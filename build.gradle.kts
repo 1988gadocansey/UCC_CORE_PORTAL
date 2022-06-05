@@ -45,7 +45,12 @@ dependencies {
     annotationProcessor("io.micronaut.security:micronaut-security-annotations")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
     implementation("io.micronaut.security:micronaut-security-oauth2")
-
+    implementation("io.micronaut.security:micronaut-security-session")
+    implementation("io.swagger.core.v3:swagger-annotations")
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+    annotationProcessor("io.micronaut.security:micronaut-security-annotations")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    implementation("io.micronaut.views:micronaut-views-velocity")
 }
 
 

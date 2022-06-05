@@ -10,7 +10,9 @@ data class Programme(
     @AutoPopulated @field:Id val id: UUID?,
     val name: String?,
     val code: String?,
-
+    val certificates: Certificates?,
+    val duration: String?,
+    val minCredit: Int,
     @Relation(Relation.Kind.MANY_TO_ONE)
     val department: Department?,
     @Relation(Relation.Kind.MANY_TO_ONE)
@@ -21,6 +23,9 @@ data class Programme(
         cascade = [Relation.Cascade.ALL]
     )
     val student: List<Student>,
+    val running: Boolean?,
+    val showOnPortal: Boolean?,
+    val semester: Int,
 
     @field:DateCreated
     val createdAt: LocalDateTime? = LocalDateTime.now(),

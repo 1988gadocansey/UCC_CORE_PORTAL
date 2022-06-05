@@ -7,6 +7,8 @@ import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.PathVariable
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
 import kotlinx.coroutines.flow.Flow
 import ucc.domain.Post
 import ucc.exceptions.PostNotFoundException
@@ -14,7 +16,7 @@ import ucc.repositories.PostRepository
 import java.net.URI
 import java.util.*
 
-
+@Secured(SecurityRule.IS_ANONYMOUS)
 @Controller("/posts")
 class PostController(private val posts: PostRepository) {
     @Get(uri = "/", produces = [MediaType.APPLICATION_JSON])

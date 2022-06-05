@@ -4,11 +4,12 @@ import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
+import io.micronaut.security.annotation.Secured
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import ucc.domain.Book
 import ucc.repositories.BookRepository
-
+@Secured
 @Controller("/books")
 class BookController(private val repository: BookRepository) {
     @Get
